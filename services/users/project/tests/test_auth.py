@@ -1,8 +1,6 @@
 import json
 import unittest
 
-import time
-
 from flask import current_app
 
 from project.tests.base import BaseTestCase
@@ -195,7 +193,9 @@ class TestAuth(BaseTestCase):
 
             data = json.loads(response.data.decode())
             self.assertTrue(data['status'] == 'fail')
-            self.assertTrue(data['message'] == 'Signature expired. Please log in again.')
+            self.assertTrue(
+                data['message'] == 'Signature expired. Please log in again.'
+            )
             self.assertEqual(response.status_code, 401)
 
     def test_invalid_logout(self):
@@ -207,7 +207,9 @@ class TestAuth(BaseTestCase):
 
             data = json.loads(response.data.decode())
             self.assertTrue(data['status'] == 'fail')
-            self.assertTrue(data['message'] == 'Invalid token. Please log in again.')
+            self.assertTrue(
+                data['message'] == 'Invalid token. Please log in again.'
+            )
             self.assertEqual(response.status_code, 401)
 
     def test_user_status(self):
@@ -243,7 +245,9 @@ class TestAuth(BaseTestCase):
             )
             data = json.loads(response.data.decode())
             self.assertTrue(data['status'] == 'fail')
-            self.assertTrue(data['message'] == 'Invalid token. Please log in again.')
+            self.assertTrue(
+                data['message'] == 'Invalid token. Please log in again.'
+            )
             self.assertEqual(response.status_code, 401)
 
 
