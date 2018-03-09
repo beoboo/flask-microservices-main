@@ -183,7 +183,7 @@ class TestUserService(BaseTestCase):
                     username='michael',
                     email='michael@sonotreal.com',
                     password='greaterthaneight'
-                ),
+                    ),
                 follow_redirects=True
             )
             self.assertEqual(response.status_code, 200)
